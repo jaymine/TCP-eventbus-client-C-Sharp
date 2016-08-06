@@ -24,14 +24,20 @@ Every message consists of a json message and the length of the json message. Len
 
 to import eventbus,
 
-	using io.vertx;
+```cs	
+using io.vertx; 
+```
 
 to create eventbus,
 
-	Eventbus eb = new Eventbus("127.0.0.1",7000,1000);
+```cs	
+Eventbus eb = new Eventbus("127.0.0.1",7000,1000); 
+```
 or 
 
-	Eventbus eb = new Eventbus("127.0.0.1",7000);
+```cs	
+Eventbus eb = new Eventbus("127.0.0.1",7000); 
+```
 
 Eventbus constructor takes 3 arguments
 
@@ -43,7 +49,9 @@ Eventbus constructor takes 3 arguments
 
 Every eventbus message has an address and the client will handle the message according to its address. An address can be any string.
 
-	eg: "vertx", "pink pig", "x.y.z"
+```cs	
+eg: "vertx", "pink pig", "x.y.z" 
+```
 
 ### JObject ###
 
@@ -51,12 +59,15 @@ Here Newtonsoft.json has been used.
 
 to import,
 
-	using Newtonsoft.Json.Linq;
+```cs	
+using Newtonsoft.Json.Linq; 
+```
 
 to create JObject,
-
+```cs
 	JObject body_sub =new JObject();
     body_sub.Add("message","sub");
+```
 for more info go to [Newtonsoft.Linq](http://www.newtonsoft.com/json/help/html/QueryingLINQtoJSON.htm)
 
 ### Handling Messages ###
@@ -64,7 +75,7 @@ for more info go to [Newtonsoft.Linq](http://www.newtonsoft.com/json/help/html/Q
 To handle a message, Handlers are used. Handlers are structures that take 2 arguments. 
 
 to implement a handler,
-
+```cs
 	Handlers myhandler=new Handlers(
         "Get",//can change into any address
         new Action<JObject>(
@@ -74,7 +85,7 @@ to implement a handler,
                       }
         )
     );
-
+```
 
 A Handler takes 2 argument 
 
@@ -87,8 +98,9 @@ A Handler takes 2 argument
 In order to handle messages, Handlers should be registered under an address.
 
 to register a handler,
-
+```cs
 	eb.register("Get",myhandler);
+```
  Register under the same address.
 
 After that any message that comes to the address will be sent to the handler.
@@ -96,17 +108,19 @@ After that any message that comes to the address will be sent to the handler.
 ### Unregister Handlers ###
 
 to unregister an address,
-
-	eb.unregister("Get");
+```cs
+eb.unregister("Get");
+```
 
 ### Headers ###
 
 Headers is the structure that handles headers for each message. 
 
 to create,
-
-	Headers h = new Headers();
-    h.addHeaders("type", "maths"); 
+```cs
+Headers h = new Headers();
+h.addHeaders("type", "maths"); 
+```
 
 - Headers.addHeaders(key, value) - add headers to message
 - Headers.deleteHeaders() - delete all headers from message
@@ -116,7 +130,7 @@ to create,
 ### Send ###
 
 Messages can be sent in 2 ways.
-
+```cs
 		eb.send(
                 "Get",//address
                 body_add,//body
@@ -135,7 +149,7 @@ Messages can be sent in 2 ways.
 
 		eb.send("Get", body_add, "Get", h);
         eb.send("Get", body_add, null, h);
-
+```
 Here timeInterval is Optional. Default is 10 seconds. ReplyHandler waits timeinterval for a reply. If the reply didnot come, then ReplyHandler will be called with an error (Timeout error).
 
 ### ReplyHandlers ###
@@ -143,7 +157,7 @@ Here timeInterval is Optional. Default is 10 seconds. ReplyHandler waits timeint
 ReplyHandlers are used to handle reply messages if there is a reply.
 
 to create,
-
+```cs
 	ReplyHandler myRH=new ReplyHandlers("Get",//replyhandler address
                    new Action<bool, JObject>( //replyhandler function
                        (err, message) =>
@@ -153,18 +167,20 @@ to create,
                        }
                    )
                 )
-
+```
 ### Publish ###
 
 Messages can be published in this way,
-
-	eb.publish("Get", body_close, h);
+```cs
+eb.publish("Get", body_close, h);
+```
 
 ### Close Connection ###
 
 You must close the connection end of the program. If not program wont close at the end.
-
-	eb.CloseConnection(5);
+```cs
+eb.CloseConnection(5);
+```
 
 CloseConnection(time) - time in seconds. After that connection will be closed.
 
