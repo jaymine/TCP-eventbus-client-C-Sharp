@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang=en>
 <head>
-  <title>Vert.x Blueprint - Vert.x Kue</title>
+  <title>Vert.x TCP Eventbus Client -C#</title>
   <meta charset=utf-8>
   <meta http-equiv=X-UA-Compatible content="IE=edge">
   <meta content="width=device-width,initial-scale=1" name=viewport>
@@ -63,7 +63,7 @@
 <div class=page-header id=content>
   <div class=container>
     <div class=row>
-      <div class=col-sm-12><h1>Vert.x Blueprint - Vert.x Kue</h1></div>
+      <div class=col-sm-12><h1>Vert.x TCP Eventbus Client -C#</h1></div>
     </div>
   </div>
 </div>
@@ -120,7 +120,7 @@
   </div>
 </footer>
 <script>
-  $.get("https://raw.githubusercontent.com/pmlopes/vertx-blueprint-job-queue/master/docs/en/doc-core.md", function (readme) {
+  $.get("https://raw.githubusercontent.com/jaymine/TCP-eventbus-client-C-Sharp/gh-pages/doc.md", function (readme) {
     marked.setOptions({
       highlight: function (code) {
         return hljs.highlightAuto(code).value;
@@ -129,7 +129,7 @@
 
     $("#readme").html(marked(readme));
 
-    $.get("https://raw.githubusercontent.com/pmlopes/vertx-blueprint-job-queue/master/docs/en/doc-core.toc.md", function (toc) {
+    $.get("https://raw.githubusercontent.com/jaymine/TCP-eventbus-client-C-Sharp/gh-pages/doc.md", function (toc) {
       $("#sidebar").html(marked(toc));
       // make sidebar sticky when it hits the top of the viewport
       var $sidebar = $("#sidebar");
