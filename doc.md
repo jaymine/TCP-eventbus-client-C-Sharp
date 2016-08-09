@@ -186,7 +186,7 @@ CloseConnection(time) - time in seconds. After that connection will be closed.
 
 ### Errors ###
 
-Error messages will be write into error_log_.txt file.  
+Error messages will be written into error_log_.txt file.  
 
 ## Examples ###
 
