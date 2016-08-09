@@ -2,7 +2,7 @@
 **C Shrap TCP eventbus client** is the Vert.x TCP eventbus client module for C Sharp. I hope you are familiar with Vert.x TCP eventbus bridge. If not get more details from [here](http://vertx.io/docs/vertx-tcp-eventbus-bridge/java/ "http://vertx.io/docs/vertx-tcp-eventbus-bridge/java/"). 
 
 - [Open project on Github](https://github.com/jaymine/TCP-eventbus-client-C-Sharp)
-- [Download module](https://www.nuget.org/packages/VertxEventbus/1.2.0-beta)
+- [Download module](https://www.nuget.org/packages/vertx-eventbus/2.1.0-pre)
 
 ## Implementation ##
 
